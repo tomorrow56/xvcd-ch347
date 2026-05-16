@@ -4,6 +4,8 @@ CH347 Xilinx Virtual Cable
 
 xvcd_ch347 of XVC (Xilinx Virtual Cable) protocol based on xvcd (https://github.com/tmbinc/xvcd)
 
+[日本語版 README はこちら](README_jp.md)
+
 ## Compile
 
 ### Windows
@@ -13,7 +15,7 @@ First, ensure you have Git and either Visual Studio (requires a license for comm
 Open **Developer PowerShell for Visual Studio** and run the following commands:
 
 ```powershell
-git clone https://github.com/AIOT-CAT/xvcd-ch347.git
+git clone https://github.com/tomorrow56/xvcd-ch347.git
 New-Item -Path 'xvcd-ch347\build' -ItemType Directory
 Set-Location 'xvcd-ch347\build'
 cmake ..
@@ -31,13 +33,13 @@ sudo apt-get update
 sudo apt-get install libusb-1.0-0-dev
 # This installs libusb 0.0.1, no need to install unless you clear what you are doing.
 # sudo apt-get install libusb-dev
-sudo apt install build-essentials cmake
+sudo apt install build-essential cmake
 ```
 
 or you can install libusb manually from: https://github.com/libusb/libusb.git
 
 ```bash
-git clone https://github.com/AIOT-CAT/xvcd-ch347.git
+git clone https://github.com/tomorrow56/xvcd-ch347.git
 mkdir -p xvcd-ch347/build
 cd xvcd-ch347/build
 cmake ..
@@ -50,7 +52,7 @@ make
 
    Support : `KHZ(468.75)`, `KHZ(937.5)`, `MHZ(1.875)`, `MHZ(3.75)`, `MHZ(7.5)`, `MHZ(15)`, `MHZ(30)`, `MHZ(60)`.
 
-   If you need to set a 10MHz clock, choose 15MHz or 7.5MHz, and modify the `DEFAULT_JTAG-SPEED` variable in `xvcd_win.c` to correspond to the clock, such as `150000000`.
+   If you need to set a 10MHz clock, choose 15MHz or 7.5MHz, and modify the `DEFAULT_JTAG_SPEED` variable in `xvcd.c` to correspond to the clock, such as `15000000`.
 
    If you have a better way to accelerate the speed of this xvcd, please communicate with me for research, or if there are other integrated methods such as Vivado, we can also communicate together. If there are results, we can open them up again to serve more developers, **oidcatiot@163.com**
 
