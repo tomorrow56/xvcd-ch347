@@ -103,8 +103,10 @@ int ch347_open(dev_ctx *ch347_ctx)
         return ret;
     }
 
-    // claim interface x
-    int interface_num = 4;
+    libusb_set_auto_detach_kernel_driver(ch347_ctx->op_handle, 1);
+
+    // CH347T (0x55DD): JTAG on interface 2, CH347F (0x55DE): JTAG on interface 4
+    int interface_num = (ch347_ctx->usb_pid == CH347F_PRODUCT_ID) ? 4 : 2;
     ret = libusb_claim_interface(ch347_ctx->op_handle, interface_num);
     if (ret < 0) {
         printf("libusb_claim_interface failed: %s\n", libusb_error_name(ret));
